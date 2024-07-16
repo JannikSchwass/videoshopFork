@@ -26,14 +26,19 @@ import javax.money.MonetaryAmount;
 import org.javamoney.moneta.Money;
 import org.salespointframework.catalog.Product;
 
-// (｡◕‿◕｡)
-// Da der Shop DVD sowie BluRay verkaufen soll ist es sinnvoll eine gemeinsame Basisklasse zu erstellen.
-// Diese erbt von Product um die Catalog-Klasse aus Salespoint nutzen zu können.
-// Ein Primärschlüssel ist nicht notwendig, da dieser schon in Product definiert ist, alle anderen
-// JPA-Anforderungen müssen aber erfüllt werden.
+/**
+ * (｡◕‿◕｡)
+ * Da der Shop DVD sowie BluRay verkaufen soll ist es sinnvoll eine gemeinsame Basisklasse zu erstellen.
+ * Diese erbt von Product um die Catalog-Klasse aus Salespoint nutzen zu können.
+ * Ein Primärschlüssel ist nicht notwendig, da dieser schon in Product definiert ist, alle anderen
+ * JPA-Anforderungen müssen aber erfüllt werden.
+ */
 @Entity
 public class Disc extends Product {
 
+    /**
+     * Gibt den Typ der Disk an.
+     */
 	public static enum DiscType {
 		BLURAY, DVD;
 	}
@@ -54,6 +59,14 @@ public class Disc extends Product {
 	@SuppressWarnings({ "unused", "deprecation" })
 	private Disc() {}
 
+        /**
+         * Erstelle eine neue Disc mit den gegebenen Parametern.
+         * @param name Name
+         * @param image Bild-Name in den Assets
+         * @param price Preis
+         * @param genre Grenre
+         * @param type Typ der Disk
+         */
 	public Disc(String name, String image, Money price, String genre, DiscType type) {
 
 		super(name, price);
@@ -64,6 +77,15 @@ public class Disc extends Product {
                 this.desc = null;
 	}
 
+        /**
+         * Erstelle eine neue Disc mit den gegebenen Parametern.
+         * @param name Name
+         * @param image Bild-Name in den Assets
+         * @param price Preis
+         * @param genre Grenre
+         * @param type Typ der Disk
+         * @param desc Kurzbeschreibung
+         */
     public Disc(String name, String image, Money price, String genre, DiscType type, String desc) {
         super(name, price);
         this.genre = genre;
@@ -82,12 +104,15 @@ public class Disc extends Product {
 		comments.add(comment);
 	}
 
-	// (｡◕‿◕｡)
-	// Es ist immer sinnvoll sich zu überlegen wie speziell der Rückgabetyp sein sollte
-	// Da sowies nur über die Kommentare iteriert wird, ist ein Iterable<T> das sinnvollste.
-	// Weil wir keine Liste zurück geben, verhindern wir auch, dass jemand die comments-Liste
-	// einfach durch clear() leert. Deswegen geben auch so viele Salespoint Klassen nur
-	// Iterable<T> zurück ;)
+	/**
+         * // (｡◕‿◕｡)
+	 * Es ist immer sinnvoll sich zu überlegen wie speziell der Rückgabetyp sein sollte
+	 * Da sowies nur über die Kommentare iteriert wird, ist ein Iterable&lt;T&gt; das sinnvollste.
+	 * Weil wir keine Liste zurück geben, verhindern wir auch, dass jemand die comments-Liste
+	 * einfach durch clear() leert. Deswegen geben auch so viele Salespoint Klassen nur
+	 * Iterable&lt;T&gt; zurück ;)
+         * @return 
+         */
 	public Iterable<Comment> getComments() {
 		return comments;
 	}

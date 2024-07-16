@@ -22,11 +22,13 @@ import jakarta.persistence.Table;
 
 import java.time.LocalDateTime;
 
-// (｡◕‿◕｡)
-// Eigene Entity Klasse um Kommentare für Discs zu speichern
-// Alle JPA Anforderungen erfüllt :)
-// Mit der Table-Annotation kann man u.a. den Name der Tabelle angeben, ansonsten wird der Klassennamen genommen
-
+/**
+ * (｡◕‿◕｡)
+ * Eigene Entity Klasse um Kommentare für Discs zu speichern.
+ * Alle JPA Anforderungen erfüllt :)
+ * Mit der Table-Annotation kann man u.a. den Name der Tabelle angeben, ansonsten wird der Klassennamen genommen
+ * @author TU Dresden
+ */
 @Entity
 @Table(name = "COMMENTS")
 public class Comment {
@@ -44,6 +46,12 @@ public class Comment {
 	@SuppressWarnings("unused")
 	private Comment() {}
 
+        /**
+         * Erstelle einen neuen Kommentar mit den angegebenen Parametern.
+         * @param text eigentlicher Kommentar
+         * @param rating Bewertung
+         * @param dateTime Zeitstempel
+         */
 	public Comment(String text, int rating, LocalDateTime dateTime) {
 
 		this.text = text;

@@ -28,6 +28,9 @@ import org.springframework.data.util.Streamable;
  */
 public interface VideoCatalog extends Catalog<Disc> {
 
+    /**
+     * Standardmäßige Sortierung
+     */
 	static final Sort DEFAULT_SORT = Sort.sort(Disc.class).by(Disc::getId).descending();
 
 	/**

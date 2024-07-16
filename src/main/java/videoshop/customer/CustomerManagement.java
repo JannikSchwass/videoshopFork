@@ -32,6 +32,9 @@ import org.springframework.util.Assert;
 @Transactional
 public class CustomerManagement {
 
+    /**
+     * Instance of the customer role.
+     */
 	public static final Role CUSTOMER_ROLE = Role.of("CUSTOMER");
 
 	private final CustomerRepository customers;

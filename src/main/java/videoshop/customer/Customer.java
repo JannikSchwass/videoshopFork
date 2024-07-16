@@ -28,11 +28,12 @@ import org.jmolecules.ddd.types.Identifier;
 import org.salespointframework.core.AbstractAggregateRoot;
 import org.salespointframework.useraccount.UserAccount;
 
-// (｡◕‿◕｡)
-// Salespoint bietet nur eine UserAccount Verwaltung, für weitere Attribute sollte eine extra
-// Klasse geschrieben werden. Unser Kunde hat noch eine Adresse, das bietet der UserAccount nicht.
-// Um den Customer in die Datenbank zu bekommen, schreiben wir ein CustomerRepository.
-
+/**
+ * (｡◕‿◕｡)
+ * Salespoint bietet nur eine UserAccount Verwaltung, für weitere Attribute sollte eine extra
+ * Klasse geschrieben werden. Unser Kunde hat noch eine Adresse, das bietet der UserAccount nicht.
+ * Um den Customer in die Datenbank zu bekommen, schreiben wir ein CustomerRepository.
+ */
 @Entity
 public class Customer extends AbstractAggregateRoot<CustomerIdentifier> {
 
@@ -49,6 +50,11 @@ public class Customer extends AbstractAggregateRoot<CustomerIdentifier> {
 	@SuppressWarnings("unused")
 	private Customer() {}
 
+        /**
+         * Erstelle einen neuen Kunden mit den gegebenen Parametern.
+         * @param userAccount Salespoint-Nutzerkonto
+         * @param address Anschrift
+         */
 	public Customer(UserAccount userAccount, String address) {
 		this.userAccount = userAccount;
 		this.address = address;
@@ -75,6 +81,9 @@ public class Customer extends AbstractAggregateRoot<CustomerIdentifier> {
 		return userAccount;
 	}
 
+        /**
+         * Salespoint-Identifier von Kunden.
+         */
 	@Embeddable
 	public static final class CustomerIdentifier implements Identifier, Serializable {
 

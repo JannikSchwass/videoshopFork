@@ -36,6 +36,11 @@ public class VideoShop {
 
 	private static final String LOGIN_ROUTE = "/login";
 
+        /**
+         * Starte die Videoshop-Anwendung. Die Argumente werden An Spring übergeben.
+         * @param args Spring-Argumente
+         * @see org.springframework.boot.SpringApplication#run(java.lang.Class, java.lang.String...) 
+         */
 	public static void main(String[] args) {
 		SpringApplication.run(VideoShop.class, args);
 	}
