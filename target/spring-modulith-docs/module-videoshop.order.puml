@@ -1,0 +1,27 @@
+@startuml
+title VideoShop :: Order
+
+top to bottom direction
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+Container_Boundary("VideoShop.VideoShop_boundary", "VideoShop", $tags="") {
+  Component(VideoShop.VideoShop.SalespointQuantity, "Salespoint :: Quantity", "Module", "", $tags="")
+  Component(VideoShop.VideoShop.VideoShopOrder, "VideoShop :: Order", "Module", "", $tags="")
+  Component(VideoShop.VideoShop.SalespointUserAccount, "Salespoint :: User Account", "Module", "", $tags="")
+  Component(VideoShop.VideoShop.SalespointOrder, "Salespoint :: Order", "Module", "", $tags="")
+  Component(VideoShop.VideoShop.SalespointPayment, "Salespoint :: Payment", "Module", "", $tags="")
+  Component(VideoShop.VideoShop.VideoShopCatalog, "VideoShop :: Catalog", "Module", "", $tags="")
+}
+
+Rel_D(VideoShop.VideoShop.VideoShopOrder, VideoShop.VideoShop.VideoShopCatalog, "depends on", $tags="")
+Rel_D(VideoShop.VideoShop.VideoShopOrder, VideoShop.VideoShop.SalespointPayment, "depends on", $tags="")
+Rel_D(VideoShop.VideoShop.VideoShopOrder, VideoShop.VideoShop.SalespointUserAccount, "depends on", $tags="")
+Rel_D(VideoShop.VideoShop.VideoShopOrder, VideoShop.VideoShop.SalespointQuantity, "depends on", $tags="")
+Rel_D(VideoShop.VideoShop.VideoShopOrder, VideoShop.VideoShop.SalespointOrder, "uses", $tags="")
+Rel_D(VideoShop.VideoShop.VideoShopCatalog, VideoShop.VideoShop.SalespointQuantity, "depends on", $tags="")
+
+SHOW_LEGEND(true)
+@enduml

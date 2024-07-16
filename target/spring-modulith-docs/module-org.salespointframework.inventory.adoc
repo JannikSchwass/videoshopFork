@@ -1,0 +1,23 @@
+[%autowidth.stretch, cols="h,a"]
+|===
+|Base package
+|`org.salespointframework.inventory`
+|Spring components
+|_Repositories_
+
+* `o.s.i.Inventory` (via `o.s.i.MultiInventory`)
+* `o.s.i.Inventory` (via `o.s.i.UniqueInventory`)
+|Aggregate roots
+|* `o.s.i.InventoryItem`
+* `o.s.i.MultiInventoryItem`
+* `o.s.i.UniqueInventoryItem`
+|Published events
+|* `o.s.i.QuantityReduced` created by:
+** `o.s.i.InventoryItem.decreaseQuantity(…)`
+* `o.s.i.StockShort` created by:
+** `o.s.i.InternalInventoryListeners.on(…)`
+
+|Events listened to
+|* `o.s.o.OrderCompleted`
+* `o.s.o.OrderCanceled`
+|===

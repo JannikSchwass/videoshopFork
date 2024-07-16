@@ -1,0 +1,14 @@
+[%autowidth.stretch, cols="h,a"]
+|===
+|Base package
+|`videoshop.catalog`
+|Spring components
+|_Repositories_
+
+* `v.c.VideoCatalog`
+|Bean references
+|* `o.s.i.UniqueInventory` (in Salespoint :: Inventory)
+* `o.s.t.BusinessTime` (in Salespoint :: Time)
+|Aggregate roots
+|* `v.c.Disc`
+|===

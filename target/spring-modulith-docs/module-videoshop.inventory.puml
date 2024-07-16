@@ -1,0 +1,27 @@
+@startuml
+title VideoShop :: Inventory
+
+top to bottom direction
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+Container_Boundary("VideoShop.VideoShop_boundary", "VideoShop", $tags="") {
+  Component(VideoShop.VideoShop.SalespointQuantity, "Salespoint :: Quantity", "Module", "", $tags="")
+  Component(VideoShop.VideoShop.SalespointInventory, "Salespoint :: Inventory", "Module", "", $tags="")
+  Component(VideoShop.VideoShop.SalespointCore, "Salespoint :: Core", "Module", "", $tags="")
+  Component(VideoShop.VideoShop.VideoShopInventory, "VideoShop :: Inventory", "Module", "", $tags="")
+  Component(VideoShop.VideoShop.VideoShopCatalog, "VideoShop :: Catalog", "Module", "", $tags="")
+}
+
+Rel_D(VideoShop.VideoShop.VideoShopCatalog, VideoShop.VideoShop.SalespointQuantity, "depends on", $tags="")
+Rel_D(VideoShop.VideoShop.VideoShopCatalog, VideoShop.VideoShop.SalespointCore, "depends on", $tags="")
+Rel_D(VideoShop.VideoShop.VideoShopCatalog, VideoShop.VideoShop.SalespointInventory, "uses", $tags="")
+Rel_D(VideoShop.VideoShop.VideoShopInventory, VideoShop.VideoShop.SalespointQuantity, "depends on", $tags="")
+Rel_D(VideoShop.VideoShop.VideoShopInventory, VideoShop.VideoShop.SalespointCore, "depends on", $tags="")
+Rel_D(VideoShop.VideoShop.VideoShopInventory, VideoShop.VideoShop.SalespointInventory, "uses", $tags="")
+Rel_D(VideoShop.VideoShop.VideoShopInventory, VideoShop.VideoShop.VideoShopCatalog, "uses", $tags="")
+
+SHOW_LEGEND(true)
+@enduml

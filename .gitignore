@@ -1,5 +1,5 @@
 db/
-target/
+/target/**/*
 .settings/
 .project
 .classpath
@@ -10,3 +10,6 @@ target/
 *.mdzip.bak
 
 .vscode/
+
+!/target/spring-modulith-docs/
+!/target/spring-modulith-docs/*

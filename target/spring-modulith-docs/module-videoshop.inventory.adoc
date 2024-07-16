@@ -1,0 +1,8 @@
+[%autowidth.stretch, cols="h,a"]
+|===
+|Base package
+|`videoshop.inventory`
+|Bean references
+|* `o.s.i.UniqueInventory` (in Salespoint :: Inventory)
+* `v.c.VideoCatalog` (in Catalog)
+|===

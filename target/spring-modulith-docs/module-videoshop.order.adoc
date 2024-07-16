@@ -1,0 +1,7 @@
+[%autowidth.stretch, cols="h,a"]
+|===
+|Base package
+|`videoshop.order`
+|Bean references
+|* `o.s.o.OrderManagement` (in Salespoint :: Order)
+|===
