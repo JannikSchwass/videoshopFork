@@ -17,3 +17,7 @@ img.thumbnail {
 	width: 160px;
 	display: block;
 }
+
+.container{
+    padding-bottom: 2em;
+}

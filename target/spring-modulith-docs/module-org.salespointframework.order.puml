@@ -17,9 +17,9 @@ Container_Boundary("VideoShop.VideoShop_boundary", "VideoShop", $tags="") {
   Component(VideoShop.VideoShop.SalespointTime, "Salespoint :: Time", "Module", "", $tags="")
 }
 
+Rel_D(VideoShop.VideoShop.SalespointOrder, VideoShop.VideoShop.SalespointUserAccount, "depends on", $tags="")
 Rel_D(VideoShop.VideoShop.SalespointOrder, VideoShop.VideoShop.SalespointCatalog, "depends on", $tags="")
 Rel_D(VideoShop.VideoShop.SalespointOrder, VideoShop.VideoShop.SalespointQuantity, "depends on", $tags="")
-Rel_D(VideoShop.VideoShop.SalespointOrder, VideoShop.VideoShop.SalespointUserAccount, "depends on", $tags="")
 Rel_D(VideoShop.VideoShop.SalespointOrder, VideoShop.VideoShop.SalespointCore, "depends on", $tags="")
 Rel_D(VideoShop.VideoShop.SalespointOrder, VideoShop.VideoShop.SalespointPayment, "depends on", $tags="")
 Rel_D(VideoShop.VideoShop.SalespointOrder, VideoShop.VideoShop.SalespointTime, "uses", $tags="")

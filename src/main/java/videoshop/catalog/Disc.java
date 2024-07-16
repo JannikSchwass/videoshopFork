@@ -21,6 +21,7 @@ import jakarta.persistence.OneToMany;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.money.MonetaryAmount;
 
 import org.javamoney.moneta.Money;
 import org.salespointframework.catalog.Product;
@@ -41,6 +42,7 @@ public class Disc extends Product {
 	// primitive Typen oder Strings müssen nicht extra für JPA annotiert werden
 	private String genre, image;
 	private DiscType type;
+        private String desc;
 
 	// (｡◕‿◕｡)
 	// Jede Disc besitzt mehrere Kommentare, eine "1 zu n"-Beziehung -> @OneToMany für JPA
@@ -59,7 +61,18 @@ public class Disc extends Product {
 		this.image = image;
 		this.genre = genre;
 		this.type = type;
+                this.desc = null;
 	}
+
+    public Disc(String name, String image, Money price, String genre, DiscType type, String desc) {
+        super(name, price);
+        this.genre = genre;
+        this.image = image;
+        this.type = type;
+        this.desc = desc;
+    }
+        
+        
 
 	public String getGenre() {
 		return genre;
@@ -86,4 +99,10 @@ public class Disc extends Product {
 	public DiscType getType() {
 		return type;
 	}
+
+    public String getDesc() {
+        return desc;
+    }
+        
+        
 }

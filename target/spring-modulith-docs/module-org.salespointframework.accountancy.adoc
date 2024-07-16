@@ -16,6 +16,6 @@ _Event listeners_
 |* `o.s.a.AccountancyEntry`
 * `o.s.a.OrderPaymentEntry`
 |Events listened to
-|* `o.s.o.OrderCanceled`
-* `o.s.o.OrderPaid`
+|* `o.s.o.OrderPaid`
+* `o.s.o.OrderCanceled`
 |===

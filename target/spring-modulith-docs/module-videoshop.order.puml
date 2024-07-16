@@ -16,12 +16,12 @@ Container_Boundary("VideoShop.VideoShop_boundary", "VideoShop", $tags="") {
   Component(VideoShop.VideoShop.VideoShopCatalog, "VideoShop :: Catalog", "Module", "", $tags="")
 }
 
+Rel_D(VideoShop.VideoShop.VideoShopCatalog, VideoShop.VideoShop.SalespointQuantity, "depends on", $tags="")
 Rel_D(VideoShop.VideoShop.VideoShopOrder, VideoShop.VideoShop.VideoShopCatalog, "depends on", $tags="")
 Rel_D(VideoShop.VideoShop.VideoShopOrder, VideoShop.VideoShop.SalespointPayment, "depends on", $tags="")
-Rel_D(VideoShop.VideoShop.VideoShopOrder, VideoShop.VideoShop.SalespointUserAccount, "depends on", $tags="")
 Rel_D(VideoShop.VideoShop.VideoShopOrder, VideoShop.VideoShop.SalespointQuantity, "depends on", $tags="")
+Rel_D(VideoShop.VideoShop.VideoShopOrder, VideoShop.VideoShop.SalespointUserAccount, "depends on", $tags="")
 Rel_D(VideoShop.VideoShop.VideoShopOrder, VideoShop.VideoShop.SalespointOrder, "uses", $tags="")
-Rel_D(VideoShop.VideoShop.VideoShopCatalog, VideoShop.VideoShop.SalespointQuantity, "depends on", $tags="")
 
 SHOW_LEGEND(true)
 @enduml
